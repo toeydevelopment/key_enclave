@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - key_enclave (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - key_enclave (from `.symlinks/plugins/key_enclave/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  key_enclave:
+    :path: ".symlinks/plugins/key_enclave/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  key_enclave: c96769bb850e0309e50cfb94c23ac595d15e8674
+
+PODFILE CHECKSUM: c34e2287a9ccaa606aeceab922830efb9a6ff69a
+
+COCOAPODS: 1.9.3
