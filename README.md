@@ -1,14 +1,17 @@
 # key_enclave
 
-A new flutter plugin project.
+package that make communication more secure by using secure enclave in ios and keystore in android
 
-## Getting Started
+## Status
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+developing...
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+```
+features that availables
+- generate keypair
+- sign data with private key
+- delete key in store 
+
+** NOTE THAT: you cannot retreive private key.
+```
+

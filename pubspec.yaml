@@ -1,8 +1,8 @@
 name: key_enclave
-description: A new flutter plugin project.
+description: using secure enclave and keystore to sign message for secure comunication
 version: 0.0.1
-author:
-homepage:
+author: Anirut Kamchai anirut.workspace@gmail.com
+homepage: https://github.com/toeydevelopment/key_enclave
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
