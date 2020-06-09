@@ -14,40 +14,13 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
+  String publicKey = '';
   String signMessage = "";
 
   @override
   void initState() {
     super.initState();
     // initPlatformState();
-  }
-
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    String platformVersion = "ss";
-    String _signMessage = "assss";
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    try {
-      // new KeyEnclave().deletePrivateKeyIfExist("th.co.dopa.bora.imauth.secure");
-      platformVersion = await new KeyEnclave().generateKeyPair("th.co.dopa.bora.imauth.secure");
-      _signMessage = await new KeyEnclave().signMessage("th.co.dopa.bora.imauth.secure", "Hello Worldskndsmnfdsnlkfsnklgdsnkgdsngdsnklgsdnklsdgnklgds");
-    } on PlatformException catch(e){
-      platformVersion = 'Failed to get platform version. ' +e.toString();
-    } catch (e) {
-      print(e.toString());
-    }
-
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-
-    setState(() {
-      _platformVersion = platformVersion;
-      signMessage = _signMessage;
-    
-    });
   }
 
   @override
@@ -59,14 +32,38 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Text("PUBLIC KEY " + this._platformVersion),
+            RaisedButton(
+              onPressed: () async {
+                final pub = await KeyEnclave().generateKeyPair("EXAMPLE");
+                setState(() {
+                  this.publicKey = pub;
+                });
+              },
+              child: Text("GENERATE KEY PAIR"),
+            ),
+            Text("PUBLIC KEY " + this.publicKey),
+             RaisedButton(
+              onPressed: () async {
+                try {
+                  // change message that you want to sign
+                final signed = await KeyEnclave().signMessage("EXAMPLE","sadkasd;alsd;ldasdas");
+                setState(() {
+                  this.signMessage = signed;
+                });
+                  
+                } catch (e) {
+                  setState(() {
+                    this.signMessage = e.toString();
+                  });
+                }
+              },
+              child: Text("SIGN MESSAGE"),
+            ),
             Text("SIGN MESSAGE " + this.signMessage)
           ],
         ),
-        floatingActionButton: FloatingActionButton(onPressed: (){
-          this.initPlatformState();
-        }),
       ),
     );
   }
