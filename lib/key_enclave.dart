@@ -13,9 +13,9 @@ class KeyEnclave {
    final String pubicKey =
         await _channel.invokeMethod('generateKeyPair', {"TAG": tag});
 
-    String publicKeyStr = "-----BEGIN PUBLIC KEY-----\n" +
+    String publicKeyStr = "-----BEGIN PUBLIC KEY-----\r\n" +
         pubicKey.replaceAll("\n", "") +
-        "\n-----END PUBLIC KEY-----";
+        "\r\n-----END PUBLIC KEY-----";
     return publicKeyStr;
   }
 
