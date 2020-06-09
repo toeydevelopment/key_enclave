@@ -13,9 +13,15 @@ class KeyEnclave {
     final String pubicKey =
         await _channel.invokeMethod('generateKeyPair', {"TAG": tag});
 
-    return "-----BEGIN PUBLIC KEY-----\n" +
+    String publicKeyStr = "-----BEGIN PUBLIC KEY-----\n" +
         pubicKey +
         "\n-----END PUBLIC KEY-----";
+        // replace \n when generate public key in android
+    if (publicKeyStr.split("\n").length == 4) {
+      publicKeyStr = publicKeyStr.replaceFirst(
+          "\n", "", publicKeyStr.length - "\n-----END PUBLIC KEY-----".length);
+    }
+    return publicKeyStr;
   }
 
   Future<bool> deletePrivateKeyIfExist(String tag) async {

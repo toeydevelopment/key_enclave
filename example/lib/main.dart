@@ -29,6 +29,7 @@ class _MyAppState extends State<MyApp> {
     String _signMessage = "assss";
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
+      // new KeyEnclave().deletePrivateKeyIfExist("th.co.dopa.bora.imauth.secure");
       platformVersion = await new KeyEnclave().generateKeyPair("th.co.dopa.bora.imauth.secure");
       _signMessage = await new KeyEnclave().signMessage("th.co.dopa.bora.imauth.secure", "Hello Worldskndsmnfdsnlkfsnklgdsnkgdsngdsnklgsdnklsdgnklgds");
     } on PlatformException catch(e){
