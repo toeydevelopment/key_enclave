@@ -141,7 +141,7 @@ public class SwiftKeyEnclavePlugin: NSObject, FlutterPlugin {
         
         if #available(iOS 10.0, *) {
             do {
-                guard let signData = SecKeyCreateSignature(try loadPrivateKey(tag: tag)!, SecKeyAlgorithm.ecdsaSignatureDigestX962SHA512, messageData as CFData, nil) else {
+                guard let signData = SecKeyCreateSignature(try loadPrivateKey(tag: tag)!, SecKeyAlgorithm.ecdsaSignatureMessageX962SHA512, messageData as CFData, nil) else {
                     print ("sign data failed")
                     throw SecureError.SignData
                 }

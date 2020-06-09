@@ -1,19 +1,28 @@
-## 0.0.1
+## 0.0.5+1
 
-* TODO: intialize
+* fixed ios bug
+* add example
 
-## 0.0.3
+## 0.0.5+1
 
-* replace necessary break line
-
-## 0.0.4
-
-* remove break line bug
+* remove stupid bug
 
 ## 0.0.5
 
 * remove bug delete private key
 
-## 0.0.5+1
+## 0.0.4
 
-* remove stupid bug
+* remove break line bug
+
+## 0.0.3
+
+* replace necessary break line
+
+## 0.0.1
+
+* TODO: intialize
+
+
+
+
