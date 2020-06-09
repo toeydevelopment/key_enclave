@@ -44,7 +44,7 @@ public class SwiftKeyEnclavePlugin: NSObject, FlutterPlugin {
              let tag = args["TAG"] as! String
             do {
                 try self.deleteKeyIfExist(tag: tag)
-                reult("success")
+                result("success")
             } catch  {
                 result(FlutterError.init(code: "delete key failed", message: "something went wrong when try to delete", details: nil))
             }

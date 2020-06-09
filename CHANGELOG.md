@@ -13,3 +13,7 @@
 ## 0.0.5
 
 * remove bug delete private key
+
+## 0.0.5+1
+
+* remove stupid bug
