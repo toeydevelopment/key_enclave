@@ -61,6 +61,7 @@ public class KeyEnclavePlugin: FlutterPlugin, MethodCallHandler {
         val tag = call.argument<String>("TAG")!!
         try {
             this.deleteKey(tag)
+            result.success("success")
         } catch(e :java.lang.Exception) {
             result.error("400", "sign failed "+e.message, null)
         }

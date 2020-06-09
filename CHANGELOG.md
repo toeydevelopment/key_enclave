@@ -9,3 +9,7 @@
 ## 0.0.4
 
 * remove break line bug
+
+## 0.0.5
+
+* remove bug delete private key
