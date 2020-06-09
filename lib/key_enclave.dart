@@ -10,17 +10,12 @@ class KeyEnclave {
   /// In Android in KeyStore
   /// return public key x509 format
   Future<String> generateKeyPair(String tag) async {
-    final String pubicKey =
+   final String pubicKey =
         await _channel.invokeMethod('generateKeyPair', {"TAG": tag});
 
     String publicKeyStr = "-----BEGIN PUBLIC KEY-----\n" +
-        pubicKey +
+        pubicKey.replaceAll("\n", "") +
         "\n-----END PUBLIC KEY-----";
-        // replace \n when generate public key in android
-    if (publicKeyStr.split("\n").length == 4) {
-      publicKeyStr = publicKeyStr.replaceFirst(
-          "\n", "", publicKeyStr.length - "\n-----END PUBLIC KEY-----".length);
-    }
     return publicKeyStr;
   }
 
