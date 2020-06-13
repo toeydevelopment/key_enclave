@@ -1,11 +1,13 @@
-## 0.0.5+1
+## 0.1.0+1
+- add documents and detail of this package
+
+## 0.1.0
+- ready for production ??
+
+## 0.0.5+2
 
 * fixed ios bug
 * add example
-
-## 0.0.5+1
-
-* remove stupid bug
 
 ## 0.0.5
 

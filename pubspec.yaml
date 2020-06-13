@@ -1,6 +1,6 @@
 name: key_enclave
 description: using secure enclave and keystore to sign message for secure comunication
-version: 0.1.0
+version: 0.1.0+1
 author: Anirut Kamchai anirut.workspace@gmail.com
 homepage: https://github.com/toeydevelopment/key_enclave
 
@@ -15,6 +15,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  mockito:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

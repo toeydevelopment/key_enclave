@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
-
-import 'package:flutter/services.dart';
 import 'package:key_enclave/key_enclave.dart';
 
 void main() {
@@ -16,11 +13,11 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   String publicKey = '';
   String signMessage = "";
+  String TAG = "KEY_TAG";
 
   @override
   void initState() {
     super.initState();
-    // initPlatformState();
   }
 
   @override
@@ -36,7 +33,7 @@ class _MyAppState extends State<MyApp> {
           children: <Widget>[
             RaisedButton(
               onPressed: () async {
-                final pub = await KeyEnclave().generateKeyPair("EXAMPLE");
+                final pub = await KeyEnclave().generateKeyPair(TAG);
                 setState(() {
                   this.publicKey = pub;
                 });
@@ -48,7 +45,7 @@ class _MyAppState extends State<MyApp> {
               onPressed: () async {
                 try {
                   // change message that you want to sign
-                final signed = await KeyEnclave().signMessage("EXAMPLE","sadkasd;alsd;ldasdas");
+                final signed = await KeyEnclave().signMessage(TAG,"SECURE MESSAGE");
                 setState(() {
                   this.signMessage = signed;
                 });
