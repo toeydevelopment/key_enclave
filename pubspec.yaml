@@ -1,6 +1,6 @@
 name: key_enclave
 description: using secure enclave and keystore to sign message for secure comunication
-version: 0.1.0+1
+version: 0.1.1
 author: Anirut Kamchai anirut.workspace@gmail.com
 homepage: https://github.com/toeydevelopment/key_enclave
 

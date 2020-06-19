@@ -1,3 +1,5 @@
+## 0.1.1
+- fix iphone5 generate key failed
 ## 0.1.0+1
 - add documents and detail of this package
 
