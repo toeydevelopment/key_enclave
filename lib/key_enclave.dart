@@ -13,7 +13,7 @@ class KeyEnclave {
    String pubicKey =
         await _channel.invokeMethod('generateKeyPair', {"TAG": tag});
     if(!pubicKey.startsWith("MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE")) {
-      pubicKey = pubicKey.replaceRange(0,36,"MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE");
+      pubicKey = pubicKey.replaceRange(0,37,"MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE");
     }
     String publicKeyStr = "-----BEGIN PUBLIC KEY-----\r\n" +
         pubicKey.replaceAll("\n", "") +
