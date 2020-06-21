@@ -31,17 +31,19 @@ public class SwiftKeyEnclavePlugin: NSObject, FlutterPlugin {
             
             
         } else if (call.method == "sign") {
-               let tag = args["TAG"] as! String
-               let message = args["MESSAGE"] as! String
+            let tag = args["TAG"] as! String
+            let message = args["MESSAGE"] as! String
             do {
-               let signedMessage = try self.sign(tag: tag, message: message)
+                let signedMessage = try self.sign(tag: tag, message: message)
                 result(signedMessage)
-            } catch  {
-                result(FlutterError.init(code: "sign failed", message: "something went wrong", details: nil))
+            } catch SecureError.MessageData {
+                result(FlutterError.init(code: "sign failed", message: "decode message failed", details: nil))
+            } catch SecureError.VersionUnsupported {
+                result(FlutterError.init(code: "generate failed", message: "unsupport ios \(currentVersion) support only 10.0 or above", details: nil))
             }
-        
+            
         } else if (call.method == "deleteKey") {
-             let tag = args["TAG"] as! String
+            let tag = args["TAG"] as! String
             do {
                 try self.deleteKeyIfExist(tag: tag)
                 result("success")
@@ -93,6 +95,7 @@ public class SwiftKeyEnclavePlugin: NSObject, FlutterPlugin {
                 
                 guard let publicKey = SecKeyCopyPublicKey(privateKey) else {
                     print("ERROR Generate Public Key failed")
+
                     throw SecureError.CopyPublicKey
                 }
                 
@@ -168,7 +171,7 @@ public class SwiftKeyEnclavePlugin: NSObject, FlutterPlugin {
                 kSecAttrApplicationTag as String: tag,
                 kSecReturnRef as String : true
             ]
-          SecItemDelete(query as CFDictionary)
+            SecItemDelete(query as CFDictionary)
         } else {
             throw SecureError.VersionUnsupported
         }
