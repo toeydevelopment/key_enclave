@@ -22,8 +22,7 @@ class KeyEnclave {
   }
 
   Future<bool> deletePrivateKeyIfExist(String tag) async {
-    final String deletCode =
-        await _channel.invokeMethod('deleteKey', {"TAG": tag});
+      return await _channel.invokeMethod('deleteKey', {"TAG": tag});
   }
 
   Future<String> signMessage(String tag, String message) async {
